@@ -106,9 +106,9 @@ recognition.addEventListener('result', e => {
     togglePlay();
   }
 
-  if (transcript.includes("skip")) {
-    skip();
-  }
+  // if (transcript.includes("skip")) {
+  //   skip();
+  // }                                   *Voice Control doesn't yet work for "skip"
 
   // if (transcript.includes("scrub")) {
   //   scrub(e);
