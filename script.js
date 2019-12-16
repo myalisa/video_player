@@ -7,6 +7,7 @@ const toggle = player.querySelector(".toggle");
 const skipButtons = player.querySelectorAll("[data-skip]");
 const ranges = player.querySelectorAll(".player__slider");
 
+
 /* Build out functions */
 function togglePlay() {
   const method = video.paused ? "play" : "pause";
@@ -88,7 +89,11 @@ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogn
 const recognition = new SpeechRecognition();
 recognition.interimResults = true;
 
-recognition.addEventListener("result", e => {
+let p = document.createElement('p');
+const words = document.querySelector('.words');
+words.appendChild(p);
+
+recognition.addEventListener('result', e => {
   const transcript = Array.from(e.results)
     .map(result => result[0])
     .map(result => result.transcript)
@@ -101,9 +106,9 @@ recognition.addEventListener("result", e => {
     togglePlay();
   }
 
-  // if (transcript.includes("skip")) {
-  //   skip();
-  // }
+  if (transcript.includes("skip")) {
+    skip();
+  }
 
   // if (transcript.includes("scrub")) {
   //   scrub(e);
@@ -118,3 +123,5 @@ recognition.addEventListener("result", e => {
 recognition.addEventListener("end", recognition.start);
 
 recognition.start();
+
+
