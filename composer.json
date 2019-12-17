@@ -1,1 +1,18 @@
-{}
+"scripts" : {
+        "symfony-scripts" : [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+        ],
+        "post-install-cmd" : "@symfony-scripts",
+        "post-update-cmd" : "@symfony-scripts",
+        "compile" : [
+            "php app/console assets:install web --env=dev",
+            "php app/console assetic:dump web --env=dev",
+            "rm -rf app/cache/*"
+        ]
+    }
+
