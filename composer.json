@@ -180,5 +180,5 @@
         "pre-archive-cmd": "MyVendor\\MyClass::doSomething",
         "post-archive-cmd": "MyVendor\\MyClass::doSomething"},
     "extra": { "key": "value" },
-    "bin": ["./bin/toto"]
+    "bin": ["./bin/toto"]}
 }
